@@ -1,18 +1,26 @@
-let x = prompt("Tổng điện năng tiêu thụ (kWh)");
-if (x <= 50) {
-    if (x > 51 && x <= 100) {
-        document.write("Thành tiền　:　" + (x * 1.806) + "VNĐ"  );
+function TienDien(){
+    let sodiencu = +document.getElementById("sodiencu").value;
+    let sodienmoi = +document.getElementById("sodienmoi").value;
+    let bac1 = 1806;
+    let bac2 = 1866;
+    let bac3 = 2167;
+    let bac4 = 2729;
+    let bac5 = 3050;
+    let bac6 = 3151;
+    let sokWhSD = sodiencu-sodienmoi;
+    let tiendien;
+    if(sokWhSD <= 50){
+        tiendien = sokWhSD * bac1;
+    } else if(51 <= sokWhSD >= 100){
+        tiendien = sokWhSD * bac2;
+    } else if(101 <= sokWhSD >= 200){
+        tiendien = sokWhSD * bac3;
+    } else if(201 <= sokWhSD >= 300){
+        tiendien = sokWhSD * bac4;
+    } else if(301 <= sokWhSD >= 400){
+        tiendien = sokWhSD * bac5
     } else {
-        document.write("Thành tiền　:　" + (x * 1.734) + "VNĐ");
+        tiendien = sokWhSD * bac6;
     }
-} else if (x > 101 && x <= 200) {
-    document.write("Thành tiền　:　" + (x * 2.014) + "VNĐ");
-} else {
-    if (x > 201 && x <= 300) {
-        document.write("Thành tiền　:　" + (x * 2.536) + "VNĐ");
-    } else if (x > 301 && x <= 400) {
-        document.write("Thành tiền　:　" + (x * 2.834) + "VNĐ");
-    } else {
-        document.write("Thành tiền　:　" + (x * 2.927) + "VNĐ");
-    }
+    document.getElementById("result").innerHTML="Số tiền điện phải trả là = "+ tiendien + " VNĐ ";
 }
